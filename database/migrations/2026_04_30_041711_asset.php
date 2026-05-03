@@ -13,7 +13,16 @@ class Asset extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('asset', function (Blueprint $table) {
+        $table->bigIncrements('asset_id');
+        $table->string('nama_asset');
+        $table->foreignId('kategori_id')->references('kategori_id')->on('kategori');
+        $table->foreignId('lokasi_id')->references('lokasi_id')->on('lokasi');
+        $table->enum('status', ['baik','rusak','hilang','dipinjam']);
+        $table->date('tanggal_dibeli')->nullable();
+        $table->decimal('harga', 15 ,2 )->nullable();
+        $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +32,6 @@ class Asset extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('asset');
     }
 }

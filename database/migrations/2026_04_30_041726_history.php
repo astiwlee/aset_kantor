@@ -13,7 +13,15 @@ class History extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('history', function (Blueprint $table) {
+        $table->bigIncrements('history_id');
+        $table->foreignId('asset_id')->references('asset_id')->on('asset');
+        $table->date('tanggal_update');
+        $table->enum('status_baru', ['baik','rusak','hilang','dipinjam']);
+        $table->text('catatan')->nullable();
+        $table->timestamps();
+    });
+
     }
 
     /**
@@ -23,6 +31,6 @@ class History extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('history');
     }
 }

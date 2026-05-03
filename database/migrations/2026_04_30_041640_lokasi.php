@@ -13,7 +13,12 @@ class Lokasi extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('lokasi', function (Blueprint $table)
+        {
+            $table->bigIncrements('lokasi_id');
+            $table->string('nama_lokasi');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Lokasi extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('lokasi');
     }
 }

@@ -13,7 +13,12 @@ class Kategori extends Migration
      */
     public function up()
     {
-        
+        Schema::create('kategori', function (Blueprint $table){
+            $table->bigIncrements('kategori_id');
+            $table->string('nama_kategori');
+            $table->text('deskripsi')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Kategori extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('kategori');
     }
 }
