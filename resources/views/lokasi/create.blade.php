@@ -11,38 +11,33 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Tambah Lokasi Baru</h5>
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3 border-bottom">
+                    <h5 class="mb-0 fw-bold text-dark">Tambah Lokasi Baru</h5>
                 </div>
                 <div class="card-body p-4">
                     <form action="{{ route('lokasi.store') }}" method="POST">
                         @csrf
                         
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Nama Lokasi / Ruangan</label>
+                            <label class="form-label text-secondary small fw-bold">NAMA LOKASI / RUANGAN</label>
                             <input type="text" 
                                    name="nama_lokasi" 
                                    class="form-control @error('nama_lokasi') is-invalid @enderror" 
                                    value="{{ old('nama_lokasi') }}" 
-                                   placeholder="Contoh: Gudang A, Laboratorium, atau Kantor Pusat"
-                                   autofocus>
+                                   placeholder="Contoh: Gudang A, Laboratorium, dll.">
                             
                             @error('nama_lokasi')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
-                            <small class="text-muted mt-1 d-block">Pastikan nama lokasi spesifik agar mudah ditemukan.</small>
+                            <div class="form-text text-muted mt-1">Pastikan nama lokasi spesifik agar mudah ditemukan.</div>
                         </div>
 
-                        <div class="d-flex justify-content-between">
-                            <a href="{{ route('lokasi.index') }}" class="btn btn-outline-secondary">
-                                <i class="bi bi-arrow-left"></i> Kembali
-                            </a>
-                            <button type="submit" class="btn btn-primary px-4">
-                                Simpan Lokasi
-                            </button>
+                        <div class="d-flex justify-content-between border-top pt-3">
+                            <a href="{{ route('lokasi.index') }}" class="btn btn-secondary">Batal</a>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>

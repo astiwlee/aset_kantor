@@ -11,15 +11,17 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-primary text-light">
-                    <h5 class="mb-0">Edit Kategori</h5>
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3 border-bottom">
+                    <h5 class="mb-0 fw-bold text-dark">Edit Kategori</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('kategori.update', $kategori->kategori_id) }}" method="POST">
                         @csrf
-                        @method('PUT') <div class="mb-3">
-                            <label class="form-label fw-bold">Nama Kategori</label>
+                        @method('PUT')
+                        
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small fw-bold">NAMA KATEGORI</label>
                             <input type="text" class="form-control @error('nama_kategori') is-invalid @enderror" 
                                    name="nama_kategori" 
                                    value="{{ old('nama_kategori', $kategori->nama_kategori) }}" 
@@ -32,15 +34,15 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Deskripsi</label>
+                        <div class="mb-4">
+                            <label class="form-label text-secondary small fw-bold">DESKRIPSI</label>
                             <textarea class="form-control" name="deskripsi" rows="4" 
-                                      placeholder="Masukkan Deskripsi (Opsional)">{{ old('deskripsi', $kategori->deskripsi) }}</textarea>
+                                      placeholder="Masukkan Deskripsi Kategori (Opsional)">{{ old('deskripsi', $kategori->deskripsi) }}</textarea>
                         </div>
 
-                        <div class="d-flex justify-content-between">
-                            <a href="{{ route('kategori.index') }}" class="btn btn-secondary">Kembali</a>
-                            <button type="submit" class="btn btn-primary">Update Data</button>
+                        <div class="d-flex justify-content-between border-top pt-3">
+                            <a href="{{ route('kategori.index') }}" class="btn btn-secondary">Batal</a>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>
