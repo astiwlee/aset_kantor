@@ -18,7 +18,7 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $primaryKey = 'user_id';
     protected $fillable = [
-        'name', 'email', 'password',
+        'nama', 'email', 'password','role' 
     ];
 
     /**
@@ -38,6 +38,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
 
         public function laporan()
     {
